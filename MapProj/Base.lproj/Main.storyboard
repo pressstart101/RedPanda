@@ -21,10 +21,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bX-sZ-Jjw">
-                                <rect key="frame" x="0.0" y="234" width="141" height="131"/>
+                                <rect key="frame" x="230" y="421" width="141" height="131"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
+                                    <action selector="takeAPicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SE9-Ly-Zdd"/>
                                     <segue destination="yu9-EB-eFX" kind="popoverPresentation" popoverAnchorView="5bX-sZ-Jjw" id="8MW-cY-DOs">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
@@ -42,6 +43,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="map" destination="YHS-UD-ipA" id="OKw-kX-eJT"/>
+                        <outlet property="photoButton" destination="5bX-sZ-Jjw" id="JYA-Iv-kCj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

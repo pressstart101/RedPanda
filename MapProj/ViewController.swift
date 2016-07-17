@@ -20,14 +20,17 @@ import UIKit
 import CoreLocation
 import MapKit
 
-
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var map: MKMapView!
     
+    @IBOutlet weak var photoButton: UIButton!
+    let imagePicker: UIImagePickerController! = UIImagePickerController()
     var locationManager = CLLocationManager()
     var locationChoice : (String, latitude: Double, longitude: Double)!
     var locationCoordinates = CLLocation()
     let regionRadius : CLLocationDistance = 500
+    var center = CLLocationCoordinate2D()
+    
     //copied stuff from viewdidload to viewwill appear to make sure it still shows location after camera access
     override func viewWillAppear(animated: Bool) {
         self.locationManager.delegate = self
@@ -36,7 +39,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.locationManager.startUpdatingLocation()
         self.map.showsUserLocation = true
         super.viewWillAppear(animated) // No need for semicolon
-        
+        photoButton.hidden = true
+        photoButton.enabled = false
         //Array of Animals to Choose from
         let animalOptions = ["Red Panda"]
         pickAnimal(animalOptions)
@@ -114,9 +118,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     
-    
-    
-    
     //to have it throw an error if there is one while load
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         print("Errors: " + error.localizedDescription)
@@ -130,7 +131,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     
     //Probably have it in separate file
-    @IBOutlet weak var imageTest: UIButton!
+//    @IBOutlet weak var imageTest: UIButton!
     //    @IBAction func captureImage(){
     //        let imageFromSource = UIImagePickerController()
     //        imageFromSource.delegate = self
@@ -143,10 +144,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     //        }
     //        self.presentViewController(imageFromSource, animated: true, completion: nil)
     //    }
-    ////////////
-    
-    
-    
     
     //this function is to change standard red pin to a custom image
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
@@ -181,6 +178,35 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     func centerMapOnLocation(location : CLLocation) {
         let region = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius )
         map.setRegion(region, animated : true)
+    }
+    
+//    func regionToMonitor(location : CLLocation, locationName: String) -> CLCircularRegion {
+//        let region = CLCircularRegion(center: location.coordinate, radius: regionRadius * 0.10, identifier: locationName)
+//        region.notifyOnEntry = ()
+//        
+//    }
+    
+    @IBAction func takeAPicture(sender: AnyObject) {
+        if (UIImagePickerController.isSourceTypeAvailable(.Camera)) {
+            if UIImagePickerController.availableCaptureModesForCameraDevice(.Rear) != nil {
+                imagePicker.allowsEditing = false
+                imagePicker.sourceType = .Camera
+                imagePicker.cameraCaptureMode = .Photo
+                presentViewController(imagePicker, animated: true, completion: {})
+            } else {
+                postAlert("Rear camera doesn't exist", message: "Application cannot access the camera.")
+            }
+        } else {
+            postAlert("Camera inaccessable", message: "Application cannot access the camera.")
+        }
+    }
+    
+    func postAlert(title: String, message: String)
+    {
+        let alert = UIAlertController(title: title, message: message,
+                                      preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        imagePicker.presentViewController(alert, animated: true, completion: nil)
     }
 }
 
