@@ -25,7 +25,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="captureImage" destination="BYZ-38-t0r" eventType="touchUpInside" id="N5M-xw-XSR"/>
+                                    <segue destination="yu9-EB-eFX" kind="popoverPresentation" popoverAnchorView="5bX-sZ-Jjw" id="8MW-cY-DOs">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
@@ -39,13 +41,53 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="imageTest" destination="5bX-sZ-Jjw" id="frp-3O-7Ql"/>
                         <outlet property="map" destination="YHS-UD-ipA" id="OKw-kX-eJT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="283" y="213"/>
+        </scene>
+        <!--TakeA Picture-->
+        <scene sceneID="pQM-aR-m4b">
+            <objects>
+                <viewController id="yu9-EB-eFX" customClass="TakeAPicture" customModule="MapProj" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qJ9-Qb-ay4"/>
+                        <viewControllerLayoutGuide type="bottom" id="ITw-Iz-sCg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XoL-Sw-xpL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qt6-e7-ttA">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="537"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AkQ-Lq-x4v">
+                                <rect key="frame" x="251" y="556" width="99" height="30"/>
+                                <state key="normal" title="Take A Picture"/>
+                                <connections>
+                                    <action selector="takeAPicture:" destination="yu9-EB-eFX" eventType="touchUpInside" id="Xa5-N7-aRe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Qt6-e7-ttA" firstAttribute="top" secondItem="XoL-Sw-xpL" secondAttribute="top" id="8wy-DJ-TFX"/>
+                            <constraint firstItem="Qt6-e7-ttA" firstAttribute="leading" secondItem="XoL-Sw-xpL" secondAttribute="leading" id="KRO-zR-vYg"/>
+                            <constraint firstItem="Qt6-e7-ttA" firstAttribute="centerX" secondItem="AkQ-Lq-x4v" secondAttribute="centerX" id="UId-Dj-yDQ"/>
+                            <constraint firstItem="AkQ-Lq-x4v" firstAttribute="top" secondItem="Qt6-e7-ttA" secondAttribute="bottom" constant="19" id="hq5-bb-PVb"/>
+                            <constraint firstAttribute="trailing" secondItem="Qt6-e7-ttA" secondAttribute="trailing" id="vwO-dY-ztB"/>
+                            <constraint firstItem="AkQ-Lq-x4v" firstAttribute="centerY" secondItem="XoL-Sw-xpL" secondAttribute="centerY" id="y5F-56-Cui"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="currentImage" destination="Qt6-e7-ttA" id="RxV-d2-ZOC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hiX-sf-zC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1057" y="213"/>
         </scene>
     </scenes>
 </document>
