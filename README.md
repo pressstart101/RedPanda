@@ -18,4 +18,8 @@ Keep track of helpful resources/tutorials here:
 
 <b>Camera:</b>
 
+<a href= "http://stackoverflow.com/questions/32408831/how-can-i-add-stickers-to-an-image-in-swift">SO - Overlay a Sticker in Camera</a>
 
+<a href= "https://www.raywenderlich.com/76020/using-uigesturerecognizer-with-swift-tutorial">RW - UIGestureRecognizer (Swift 1)</a>
+
+<a href= "http://www.theappguruz.com/blog/ios-text-overlay-image">Text Overlay On Image</a>
