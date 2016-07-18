@@ -8,6 +8,6 @@
 
 #ifndef Header_h
 #define Header_h
-
+#import "PRAugmentedReality/PRARManager.h"
 
 #endif /* Header_h */

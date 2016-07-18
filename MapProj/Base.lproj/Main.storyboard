@@ -20,12 +20,12 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YHS-UD-ipA">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bX-sZ-Jjw">
-                                <rect key="frame" x="0.0" y="234" width="141" height="131"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bX-sZ-Jjw">
+                                <rect key="frame" x="242" y="512" width="116" height="80"/>
+                                <state key="normal" image="camera"/>
                                 <connections>
-                                    <action selector="captureImage" destination="BYZ-38-t0r" eventType="touchUpInside" id="N5M-xw-XSR"/>
+                                    <action selector="photoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Obe-I6-xin"/>
+                                    <action selector="takeAPicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KvX-4F-h8t"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -34,13 +34,15 @@
                             <constraint firstItem="YHS-UD-ipA" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Alk-cH-hv2"/>
                             <constraint firstItem="YHS-UD-ipA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Fes-6P-plN"/>
                             <constraint firstAttribute="trailing" secondItem="YHS-UD-ipA" secondAttribute="trailing" id="URz-sI-Voh"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5bX-sZ-Jjw" secondAttribute="bottom" constant="10" id="axg-SD-Gtj"/>
+                            <constraint firstItem="5bX-sZ-Jjw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hdK-Yf-Xy2"/>
                             <constraint firstItem="YHS-UD-ipA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="s1D-lr-xmd"/>
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="imageTest" destination="5bX-sZ-Jjw" id="frp-3O-7Ql"/>
                         <outlet property="map" destination="YHS-UD-ipA" id="OKw-kX-eJT"/>
+                        <outlet property="photoButton" destination="5bX-sZ-Jjw" id="puM-l2-OTE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -48,4 +50,7 @@
             <point key="canvasLocation" x="283" y="213"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera" width="93" height="78"/>
+    </resources>
 </document>
