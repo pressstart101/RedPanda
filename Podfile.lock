@@ -1,0 +1,15 @@
+PODS:
+  - CameraManager (2.2.4)
+  - DKCamera (1.2.9)
+
+DEPENDENCIES:
+  - CameraManager (~> 2.2)
+  - DKCamera
+
+SPEC CHECKSUMS:
+  CameraManager: 761f0d3dca325e8dabd46065f0b376798bca66bf
+  DKCamera: a070bfb4d4b1cafae3816270a35536ff61a9329a
+
+PODFILE CHECKSUM: e047c2ab0e5fdb550503f6f401e86d1a61e7ec70
+
+COCOAPODS: 1.0.1
